@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'ADA Violation Damages Calculator | adaviolationcalc.com';
+const description = 'Estimate potential ADA violation damages for employment discrimination, public accommodation, and other ADA claims. Free, informational calculator covering back pay, compensatory, and punitive damages.';
+---
+<BaseLayout title={title} description={description}>
+  <h1>ADA Violation Damages Calculator</h1>
+  <p><em>Reviewed by Riley Chen (RC), Employment &amp; Civil Rights Practice Lead. Updated May 2026.</em></p>
+  <p>The Americans with Disabilities Act (ADA) prohibits discrimination against people with disabilities in employment (Title I), public accommodations (Title III), state and local government services (Title II), and telecommunications. When an employer or covered entity violates the ADA, the injured party may recover a range of damages depending on the type of claim and the defendant. This calculator estimates potential recovery for the most common ADA claims.</p>
+
+  <h2>Run the estimate</h2>
+  <form id="calc" novalidate>
+    <label for="claim-type">Type of ADA claim</label>
+    <select id="claim-type">
+      <option value="employment-termination">Title I — Wrongful termination / failure to accommodate</option>
+      <option value="employment-hiring">Title I — Failure to hire / promote</option>
+      <option value="employment-harassment">Title I — Disability-based harassment</option>
+      <option value="public-accommodation">Title III — Public accommodation denial</option>
+      <option value="government">Title II — Government services denial</option>
+    </select>
+    <label for="annual-income">Annual income at time of violation (USD)</label>
+    <input id="annual-income" type="number" value="55000" min="0" />
+    <label for="months-out">Months of lost employment (if applicable)</label>
+    <input id="months-out" type="number" value="6" min="0" max="120" />
+    <label for="employer-size">Employer size (employees)</label>
+    <select id="employer-size">
+      <option value="15-100">15–100 employees</option>
+      <option value="101-200">101–200 employees</option>
+      <option value="201-500">201–500 employees</option>
+      <option value="500+">500+ employees</option>
+    </select>
+    <label for="willful">Was the violation willful or egregious?</label>
+    <select id="willful">
+      <option value="no">No / unclear</option>
+      <option value="yes">Yes — documented bad faith or repeated violations</option>
+    </select>
+    <button type="submit">Estimate damages</button>
+  </form>
+  <p id="result" aria-live="polite"></p>
+
+  <h2>How ADA damages are calculated</h2>
+  <p>ADA Title I (employment) damages mirror those available under Title VII of the Civil Rights Act. They include back pay (lost wages from violation to resolution), front pay (future lost earnings if reinstatement isn&rsquo;t feasible), compensatory damages (emotional distress, out-of-pocket costs), and punitive damages for willful violations. Combined compensatory and punitive damages are capped by employer size.</p>
+  <p>Title II and Title III claims (government services and public accommodations) allow injunctive relief and, in some circuits, compensatory damages for intentional discrimination. Punitive damages are not available against government entities.</p>
+
+  <h2>Employer-size damages caps (Title I)</h2>
+  <ul>
+    <li><strong>15–100 employees:</strong> $50,000 combined cap on compensatory + punitive.</li>
+    <li><strong>101–200 employees:</strong> $100,000 cap.</li>
+    <li><strong>201–500 employees:</strong> $200,000 cap.</li>
+    <li><strong>500+ employees:</strong> $300,000 cap.</li>
+  </ul>
+  <p>Back pay and front pay are <em>not</em> subject to these caps &mdash; they are equitable remedies. Attorney fees are also recoverable separately.</p>
+
+  <h2>The reasonable accommodation requirement</h2>
+  <p>Most ADA employment claims center on the employer&rsquo;s failure to provide a reasonable accommodation. The employer must engage in an &ldquo;interactive process&rdquo; with the employee. Failure to do so &mdash; or denying an accommodation that imposes no undue hardship &mdash; is the core violation. Damages analysis starts with the date of the accommodation denial or termination.</p>
+
+  <h2>Where to learn more</h2>
+  <p>See <a href="/guides/how-ada-damages-are-calculated">how ADA damages are calculated</a>, <a href="/guides/types-of-ada-violations">types of ADA violations</a>, <a href="/guides/what-to-do-after-ada-violation">what to do after an ADA violation</a>, and <a href="/guides/common-ada-claim-misconceptions">common ADA claim misconceptions</a>.</p>
+
+  <script>
+    document.getElementById('calc').addEventListener('submit', e => {
+      e.preventDefault();
+      const type = document.getElementById('claim-type').value;
+      const income = parseFloat(document.getElementById('annual-income').value) || 55000;
+      const months = parseFloat(document.getElementById('months-out').value) || 0;
+      const size = document.getElementById('employer-size').value;
+      const willful = document.getElementById('willful').value === 'yes';
+      const caps = {'15-100':50000,'101-200':100000,'201-500':200000,'500+':300000};
+      const cap = caps[size];
+      const backPay = (income / 12) * months;
+      const frontPay = type.startsWith('employment') ? income * 0.5 : 0;
+      const compBase = type === 'employment-harassment' ? 40000 : (type.startsWith('employment') ? 25000 : 10000);
+      const punitive = willful && type.startsWith('employment') ? compBase * 1.5 : 0;
+      const cappedCP = Math.min(compBase + punitive, cap);
+      const total = backPay + frontPay + cappedCP;
+      const fmt = n => '$' + Math.round(n).toLocaleString();
+      document.getElementById('result').innerHTML =
+        `<strong>Estimated range: ${fmt(total * 0.7)} &ndash; ${fmt(total * 1.3)}</strong><br>Back pay: ${fmt(backPay)} &bull; Front pay: ${fmt(frontPay)} &bull; Compensatory/punitive (capped): ${fmt(cappedCP)}<br><em>Attorney fees recoverable separately. Caps apply to compensatory + punitive only. Consult an employment attorney for case-specific analysis.</em>`;
+    });
+  </script>
+</BaseLayout>
