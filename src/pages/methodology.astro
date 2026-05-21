@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Methodology | adaviolationcalc.com';
+const description = 'How the ADA violation damages calculator works: back pay, front pay, compensatory and punitive damages, and employer-size caps.';
+---
+<BaseLayout title={title} description={description}>
+  <h1>Methodology &mdash; How We Estimate ADA Damages</h1>
+  <p><em>Reviewed by Riley Chen (RC), Employment &amp; Civil Rights Practice Lead. Updated May 2026.</em></p>
+  <h2>Back pay</h2>
+  <p>Calculated as (annual income &divide; 12) &times; months of lost employment. Back pay runs from the date of the adverse employment action through the date of judgment or settlement. Courts reduce back pay by any interim earnings the plaintiff received (the mitigation requirement).</p>
+  <h2>Front pay</h2>
+  <p>Estimated at approximately 50% of annual income for Title I claims where reinstatement is unlikely. The actual period depends on facts &mdash; courts consider age, job market conditions, and the nature of the position. We use a conservative 6-month proxy for the calculator.</p>
+  <h2>Compensatory damages</h2>
+  <p>Covers emotional distress, out-of-pocket costs, and other actual harm. The base estimate depends on claim type: harassment claims generally produce higher emotional distress awards than straightforward termination claims. Published jury verdict data from comparable cases informs the ranges.</p>
+  <h2>Punitive damages</h2>
+  <p>Available for willful violations &mdash; where the employer acted with malice or reckless indifference to federally protected rights. The calculator estimates punitive at 1.5x compensatory for willful cases, consistent with published ADA verdict data.</p>
+  <h2>Combined cap</h2>
+  <p>Compensatory and punitive damages combined cannot exceed the statutory cap for the employer size (42 U.S.C. &sect; 1981a(b)(3)). Back pay and front pay are equitable remedies outside the cap. Attorney fees are separately recoverable under 42 U.S.C. &sect; 12205.</p>
+</BaseLayout>
