@@ -5,8 +5,8 @@ const description = 'Estimate potential ADA violation damages for employment dis
 ---
 <BaseLayout title={title} description={description}>
   <h1>ADA Violation Damages Calculator</h1>
-  <p><em>Reviewed by Riley Chen (RC), Employment &amp; Civil Rights Practice Lead. Updated May 2026.</em></p>
-  <p>The Americans with Disabilities Act (ADA) prohibits discrimination against people with disabilities in employment (Title I), public accommodations (Title III), state and local government services (Title II), and telecommunications. When an employer or covered entity violates the ADA, the injured party may recover a range of damages depending on the type of claim and the defendant. This calculator estimates potential recovery for the most common ADA claims.</p>
+  <p><em>Reviewed by Yael Krieger (YK), Editor-in-Chief &mdash; Disability Rights &amp; ADA Litigation Practice. Updated May 2026.</em></p>
+  <p>The Americans with Disabilities Act (ADA) prohibits discrimination against people with disabilities in employment (Title I), state and local government services (Title II), public accommodations (Title III), and telecommunications. When an employer or covered entity violates the ADA, the injured party may recover a range of damages depending on the type of claim and the defendant. This calculator estimates potential recovery for the most common ADA claims, using published verdict data, statutory caps, and the applicable damages framework under 42 U.S.C. &sect; 1981a.</p>
 
   <h2>Run the estimate</h2>
   <form id="calc" novalidate>
@@ -38,24 +38,28 @@ const description = 'Estimate potential ADA violation damages for employment dis
   </form>
   <p id="result" aria-live="polite"></p>
 
+  <h2>Understanding your estimate</h2>
+  <p>The range shown represents a plausible window of outcomes for cases with similar facts, not a guaranteed outcome in your case. ADA litigation results depend heavily on the quality of your documentation, whether you engaged in the accommodation process, whether the employer&rsquo;s stated reasons for any adverse action hold up to scrutiny, and how your damages are calculated at trial. Consult an experienced employment attorney for a case-specific evaluation.</p>
+  <p>The estimate does not include attorney fees, which are separately recoverable by the prevailing plaintiff under 42 U.S.C. &sect; 12205 and paid by the defendant. In many ADA cases, attorney fees awarded at trial or in settlement negotiations significantly exceed the capped compensatory and punitive damages — making fee-shifting a critical driver of employer settlement decisions even in lower-dollar-value cases.</p>
+
   <h2>How ADA damages are calculated</h2>
-  <p>ADA Title I (employment) damages mirror those available under Title VII of the Civil Rights Act. They include back pay (lost wages from violation to resolution), front pay (future lost earnings if reinstatement isn&rsquo;t feasible), compensatory damages (emotional distress, out-of-pocket costs), and punitive damages for willful violations. Combined compensatory and punitive damages are capped by employer size.</p>
-  <p>Title II and Title III claims (government services and public accommodations) allow injunctive relief and, in some circuits, compensatory damages for intentional discrimination. Punitive damages are not available against government entities.</p>
+  <p>ADA Title I (employment) damages mirror those available under Title VII of the Civil Rights Act. They include back pay (lost wages from violation to resolution), front pay (future lost earnings if reinstatement isn&rsquo;t feasible), compensatory damages (emotional distress, out-of-pocket costs), and punitive damages for willful violations. Combined compensatory and punitive damages are capped by employer size under 42 U.S.C. &sect; 1981a(b)(3).</p>
+  <p>Title II and Title III claims (government services and public accommodations) allow injunctive relief compelling the entity to modify its practices or facilities and, in some circuits and contexts, compensatory damages for intentional discrimination. Punitive damages are not available against government entities under Title II. Title III claims against private entities may allow compensatory damages in some circuits where courts have found that Congress waived sovereign immunity.</p>
 
   <h2>Employer-size damages caps (Title I)</h2>
   <ul>
-    <li><strong>15–100 employees:</strong> $50,000 combined cap on compensatory + punitive.</li>
+    <li><strong>15–100 employees:</strong> $50,000 combined cap on compensatory + punitive damages.</li>
     <li><strong>101–200 employees:</strong> $100,000 cap.</li>
     <li><strong>201–500 employees:</strong> $200,000 cap.</li>
     <li><strong>500+ employees:</strong> $300,000 cap.</li>
   </ul>
-  <p>Back pay and front pay are <em>not</em> subject to these caps &mdash; they are equitable remedies. Attorney fees are also recoverable separately.</p>
+  <p>Back pay and front pay are <em>not</em> subject to these caps &mdash; they are equitable remedies that can be as large as the facts support. Attorney fees are also recoverable separately and are not counted against the cap. For high-earning employees at large employers, back pay and front pay often far exceed the capped compensatory/punitive component.</p>
 
   <h2>The reasonable accommodation requirement</h2>
-  <p>Most ADA employment claims center on the employer&rsquo;s failure to provide a reasonable accommodation. The employer must engage in an &ldquo;interactive process&rdquo; with the employee. Failure to do so &mdash; or denying an accommodation that imposes no undue hardship &mdash; is the core violation. Damages analysis starts with the date of the accommodation denial or termination.</p>
+  <p>Most ADA employment claims center on the employer&rsquo;s failure to provide a reasonable accommodation. When an employee requests an accommodation for a disability, the employer is obligated to engage in an &ldquo;interactive process&rdquo; — a good-faith dialogue to identify an accommodation that allows the employee to perform the essential functions of the job without imposing undue hardship on the employer. Failure to engage in the interactive process, denial of a clearly reasonable accommodation, or adverse action shortly after an accommodation request are the most common bases for ADA claims. Damages analysis starts from the date of the accommodation denial or the adverse employment action.</p>
 
   <h2>Where to learn more</h2>
-  <p>See <a href="/guides/how-ada-damages-are-calculated">how ADA damages are calculated</a>, <a href="/guides/types-of-ada-violations">types of ADA violations</a>, <a href="/guides/what-to-do-after-ada-violation">what to do after an ADA violation</a>, and <a href="/guides/common-ada-claim-misconceptions">common ADA claim misconceptions</a>.</p>
+  <p>See <a href="/guides/how-ada-damages-are-calculated">how ADA damages are calculated</a>, <a href="/guides/types-of-ada-violations">types of ADA violations</a>, <a href="/guides/what-to-do-after-ada-violation">what to do after an ADA violation</a>, and <a href="/guides/common-ada-claim-misconceptions">common ADA claim misconceptions</a>. Read the <a href="/faq">FAQ</a> for common questions about EEOC deadlines, disability definitions, and the reasonable accommodation standard.</p>
 
   <script>
     document.getElementById('calc').addEventListener('submit', e => {

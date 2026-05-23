@@ -1,19 +1,45 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const title = 'Methodology | adaviolationcalc.com';
-const description = 'How the ADA violation damages calculator works: back pay, front pay, compensatory and punitive damages, and employer-size caps.';
+const description = 'How the ADA violation damages calculator works: back pay, front pay, compensatory and punitive damages, employer-size caps, and formula documentation.';
 ---
 <BaseLayout title={title} description={description}>
   <h1>Methodology &mdash; How We Estimate ADA Damages</h1>
-  <p><em>Reviewed by Riley Chen (RC), Employment &amp; Civil Rights Practice Lead. Updated May 2026.</em></p>
-  <h2>Back pay</h2>
-  <p>Calculated as (annual income &divide; 12) &times; months of lost employment. Back pay runs from the date of the adverse employment action through the date of judgment or settlement. Courts reduce back pay by any interim earnings the plaintiff received (the mitigation requirement).</p>
-  <h2>Front pay</h2>
-  <p>Estimated at approximately 50% of annual income for Title I claims where reinstatement is unlikely. The actual period depends on facts &mdash; courts consider age, job market conditions, and the nature of the position. We use a conservative 6-month proxy for the calculator.</p>
-  <h2>Compensatory damages</h2>
-  <p>Covers emotional distress, out-of-pocket costs, and other actual harm. The base estimate depends on claim type: harassment claims generally produce higher emotional distress awards than straightforward termination claims. Published jury verdict data from comparable cases informs the ranges.</p>
-  <h2>Punitive damages</h2>
-  <p>Available for willful violations &mdash; where the employer acted with malice or reckless indifference to federally protected rights. The calculator estimates punitive at 1.5x compensatory for willful cases, consistent with published ADA verdict data.</p>
-  <h2>Combined cap</h2>
-  <p>Compensatory and punitive damages combined cannot exceed the statutory cap for the employer size (42 U.S.C. &sect; 1981a(b)(3)). Back pay and front pay are equitable remedies outside the cap. Attorney fees are separately recoverable under 42 U.S.C. &sect; 12205.</p>
+  <p><em>Reviewed by Yael Krieger (YK), Editor-in-Chief &mdash; Disability Rights &amp; ADA Litigation Practice. Updated May 2026.</em></p>
+
+  <p>This page documents the formulas, data sources, and assumptions behind the ADA violation damages calculator. Every input, calculation step, and output range is explained so users understand how their estimate was generated and what its limitations are.</p>
+
+  <h2>Step 1: Back pay</h2>
+  <p>Back pay is calculated as: <code>(annual income &divide; 12) &times; months of lost employment</code>. It represents the wages and employment benefits the plaintiff would have received from the date of the adverse employment action through the date of judgment or settlement, reduced by any interim earnings received from replacement employment during that period (the mitigation requirement).</p>
+  <p>The calculator uses gross income, which is the standard measure for back pay calculations. Employers routinely argue that plaintiffs failed to mitigate by not conducting an adequate job search; back pay is reduced by amounts the plaintiff could have earned with reasonable effort. Courts include the economic value of benefits (health insurance, employer retirement contributions, stock options that vested during the back pay period) in the back pay calculation. The calculator does not separately itemize benefits because they vary too widely to estimate accurately, but note that actual back pay claims typically include a benefits component.</p>
+  <p>Back pay runs from the date of the adverse action through the date of judgment. In cases that settle during or before litigation, it accrues through the settlement date. Back pay is not subject to the statutory cap on compensatory and punitive damages — it is an equitable remedy that courts award separately.</p>
+
+  <h2>Step 2: Front pay</h2>
+  <p>Front pay is the equitable remedy that replaces reinstatement when returning to the former position is not feasible — typically because the position was eliminated, a suitable replacement was hired, or the working relationship has deteriorated beyond repair. The calculator estimates front pay at 50% of annual income for Title I employment claims, representing approximately six months of forward-looking lost earnings.</p>
+  <p>In practice, front pay determinations by courts vary considerably. Relevant factors include: the plaintiff&rsquo;s age and proximity to retirement; the availability of comparable positions in the relevant job market; the nature and seniority of the position; and the plaintiff&rsquo;s transferable skills and likelihood of finding equivalent work. Young plaintiffs in healthy job markets receive shorter front pay awards; older employees in specialized fields or markets with limited comparable opportunities may receive awards spanning multiple years. The calculator&rsquo;s 50% estimate is intentionally conservative. Front pay is equitable relief and is not subject to the statutory cap.</p>
+  <p>For Title II and Title III claims (government services and public accommodations), the calculator does not include a front pay component because these claims do not typically involve employment income loss.</p>
+
+  <h2>Step 3: Compensatory base</h2>
+  <p>The compensatory base represents the starting point for compensatory damages — emotional distress, mental anguish, out-of-pocket costs, and other non-economic harm — before the punitive component and statutory cap are applied. Base values are derived from published jury verdict data for comparable ADA and Title VII cases:</p>
+  <ul>
+    <li><strong>Disability harassment</strong> — $40,000 base. Harassment cases typically produce higher emotional distress awards than termination cases because they involve sustained exposure to hostile conduct. Published verdict data for hostile work environment claims in the $25,000–$75,000 range for moderate cases informs this base.</li>
+    <li><strong>Employment termination / failure to accommodate / failure to hire</strong> — $25,000 base. These cases involve discrete adverse actions with more contained emotional distress components. This reflects the median of comparable published verdicts in uncomplicated single-incident ADA termination cases.</li>
+    <li><strong>Public accommodation and government services denials</strong> — $10,000 base. Title II and Title III cases without accompanying physical harm or extended exclusion tend to produce lower compensatory awards; injunctive relief is often the primary remedy sought.</li>
+  </ul>
+
+  <h2>Step 4: Punitive damages</h2>
+  <p>Punitive damages are available in Title I employment ADA cases when the employer acted with malice or reckless indifference to the plaintiff&rsquo;s federally protected rights under 42 U.S.C. &sect; 1981a(b)(1). The malice or reckless indifference standard is met when the employer was aware of the ADA&rsquo;s requirements and consciously chose to violate them — not merely when the employer acted unreasonably or negligently. Evidence of prior ADA violations, HR awareness of the accommodation request followed by inaction, or explicit statements suggesting indifference to disability rights can establish the required mental state.</p>
+  <p>When the user selects a willful violation, the calculator adds a punitive component equal to 1.5× the compensatory base. This 1.5× ratio reflects the median punitive-to-compensatory ratio in published ADA verdicts where punitive damages were awarded. Actual punitive awards vary: some cases result in nominal punitive amounts; cases with strong evidence of deliberate indifference can produce larger ratios. Punitive damages are not available against federal, state, or local government employers, and are excluded from the estimate for public accommodation and government claims.</p>
+
+  <h2>Step 5: Combined cap application</h2>
+  <p>The sum of compensatory and punitive damages cannot exceed the statutory cap applicable to the employer&rsquo;s size under 42 U.S.C. &sect; 1981a(b)(3). The calculator applies the cap as: <code>cappedCP = Math.min(compBase + punitive, cap)</code>. The cap values are: $50,000 (15–100 employees), $100,000 (101–200), $200,000 (201–500), $300,000 (500+ employees).</p>
+  <p>Back pay and front pay are not included in the cap calculation. Total damages = back pay + front pay + capped compensatory/punitive.</p>
+
+  <h2>Step 6: Output range</h2>
+  <p>The estimate is presented as a &plusmn;30% range around the calculated central figure — lower bound at 70%, upper bound at 130%. This reflects the meaningful but moderate uncertainty in ADA damages outcomes for cases with similar inputs. Factors that could drive outcomes outside this range: extended litigation affecting back pay duration, jury variation in emotional distress assessments, and employer size-related cap constraints that limit the upside on compensatory/punitive even for large employers.</p>
+
+  <h2>What is not included</h2>
+  <p>Attorney fees (separately recoverable under 42 U.S.C. &sect; 12205, paid by the defendant), injunctive relief, reinstatement, and the economic value of lost benefits. Interest on back pay (recoverable in some circuits) is not included. The estimate also does not adjust for the mitigation requirement — actual back pay will be reduced by any earnings from replacement employment.</p>
+
+  <p>Return to the <a href="/">calculator</a>, or read the <a href="/faq">FAQ</a>.</p>
 </BaseLayout>
