@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadCapture from '../components/LeadCapture.astro';
 const title = 'ADA Violation Damages Calculator | adaviolationcalc.com';
 const description = 'Estimate potential ADA violation damages for employment discrimination, public accommodation, and other ADA claims. Free, informational calculator covering back pay, compensatory, and punitive damages.';
 ---
@@ -36,7 +37,10 @@ const description = 'Estimate potential ADA violation damages for employment dis
     </select>
     <button type="submit">Estimate damages</button>
   </form>
-  <p id="result" aria-live="polite"></p>
+  
+
+  <LeadCapture caseType="ada_violation" caseTypeLabel="ADA Violation" />
+<p id="result" aria-live="polite"></p>
 
   <h2>Understanding your estimate</h2>
   <p>The range shown represents a plausible window of outcomes for cases with similar facts, not a guaranteed outcome in your case. ADA litigation results depend heavily on the quality of your documentation, whether you engaged in the accommodation process, whether the employer&rsquo;s stated reasons for any adverse action hold up to scrutiny, and how your damages are calculated at trial. Consult an experienced employment attorney for a case-specific evaluation.</p>
@@ -59,7 +63,7 @@ const description = 'Estimate potential ADA violation damages for employment dis
   <p>Most ADA employment claims center on the employer&rsquo;s failure to provide a reasonable accommodation. When an employee requests an accommodation for a disability, the employer is obligated to engage in an &ldquo;interactive process&rdquo; — a good-faith dialogue to identify an accommodation that allows the employee to perform the essential functions of the job without imposing undue hardship on the employer. Failure to engage in the interactive process, denial of a clearly reasonable accommodation, or adverse action shortly after an accommodation request are the most common bases for ADA claims. Damages analysis starts from the date of the accommodation denial or the adverse employment action.</p>
 
   <h2>Where to learn more</h2>
-  <p>See <a href="/guides/how-ada-damages-are-calculated">how ADA damages are calculated</a>, <a href="/guides/types-of-ada-violations">types of ADA violations</a>, <a href="/guides/what-to-do-after-ada-violation">what to do after an ADA violation</a>, and <a href="/guides/common-ada-claim-misconceptions">common ADA claim misconceptions</a>. Read the <a href="/faq">FAQ</a> for common questions about EEOC deadlines, disability definitions, and the reasonable accommodation standard.</p>
+  <p>See <a href="/guides/how-ada-damages-are-calculated/">how ADA damages are calculated</a>, <a href="/guides/types-of-ada-violations/">types of ADA violations</a>, <a href="/guides/what-to-do-after-ada-violation/">what to do after an ADA violation</a>, and <a href="/guides/common-ada-claim-misconceptions/">common ADA claim misconceptions</a>. Read the <a href="/faq/">FAQ</a> for common questions about EEOC deadlines, disability definitions, and the reasonable accommodation standard.</p>
 
   <script>
     document.getElementById('calc').addEventListener('submit', e => {
