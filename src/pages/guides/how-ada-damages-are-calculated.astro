@@ -1,11 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-const title = 'How ADA Damages Are Calculated | adaviolationcalc.com';
-const description = 'A detailed walkthrough of ADA violation damages: back pay, front pay, compensatory and punitive damages, employer-size caps, and attorney fees under Title I.';
+const title = 'ADA Settlement Amounts and Damages Caps by Employer Size | adaviolationcalc.com';
+const description = 'ADA damages caps by employer size ($50,000–$300,000), what counts against them, the good-faith accommodation defense, and why there is no reliable average ADA settlement amount.';
 ---
 <BaseLayout title={title} description={description}>
-  <h1>How ADA Damages Are Calculated</h1>
-  <p><em>Published by The Click Lab Agency LLC. Last reviewed May 2026. Not legal advice.</em></p>
+  <h1>ADA Damages Caps and Settlement Amounts</h1>
+  <p><em>Published by The Click Lab Agency LLC. Last reviewed September 2026. Not legal advice.</em></p>
 
   <p>ADA Title I damages are governed by 42 U.S.C. &sect; 1981a, which incorporates and supplements the remedies available under Title VII of the Civil Rights Act. The framework includes both equitable relief (back pay, front pay, reinstatement) and legal damages (compensatory and punitive damages subject to statutory caps). Each component has distinct calculation rules, and the interaction between capped and uncapped remedies is critical to understanding total potential recovery.</p>
 
@@ -17,17 +17,17 @@ const description = 'A detailed walkthrough of ADA violation damages: back pay, 
   <h2>Front pay: future lost earnings in lieu of reinstatement</h2>
   <p>Reinstatement — returning the plaintiff to the same or equivalent position as if the discrimination had not occurred — is theoretically the preferred equitable remedy for wrongful termination under the ADA. In practice, reinstatement is frequently impractical: the position may have been eliminated, a suitable replacement may have been hired, or the employment relationship may have deteriorated beyond repair. When reinstatement is denied or impractical, the court may award front pay to compensate for future lost earnings from the judgment date forward.</p>
   <p>Front pay is an equitable remedy determined by the judge, not the jury, and is not subject to the statutory cap. Courts consider: the plaintiff&rsquo;s age and proximity to retirement; the job market for comparable positions in the relevant geographic area; the plaintiff&rsquo;s current earning capacity and trajectory; the nature of the position and the likelihood of finding equivalent work; and any other factors affecting the duration of the economic harm. Front pay awards span a wide range in reported cases — from a few months for younger plaintiffs in robust job markets to several years for older employees in specialized fields or limited geographic markets.</p>
-  <p>The calculator uses 50% of annual income (approximately six months) as a conservative central estimate for front pay. This is intentionally conservative: actual front pay awards depend on factors the calculator cannot capture, and litigation strategy often involves expert testimony from vocational economists about the plaintiff&rsquo;s future earning capacity.</p>
+  <p>The calculator uses 50% of annual income (about six months) for front pay as an illustrative assumption. This is intentionally conservative: actual front pay awards depend on factors the calculator cannot capture, and litigation strategy often involves expert testimony from vocational economists about the plaintiff&rsquo;s future earning capacity.</p>
 
   <h2>Compensatory damages: emotional distress and actual harm</h2>
   <p>Compensatory damages under &sect; 1981a cover actual harm beyond lost wages: emotional distress and mental anguish, out-of-pocket costs caused by the discrimination (job search costs, medical or therapy expenses related to the distress, relocation costs), and loss of enjoyment of life. Unlike back pay and front pay, compensatory damages are subject to the statutory cap based on employer size.</p>
   <p>Emotional distress claims are documented through: the plaintiff&rsquo;s testimony about the nature, duration, and severity of distress; medical and mental health treatment records; testimony from family members, friends, or colleagues who observed the plaintiff&rsquo;s condition; and, in some cases, expert testimony from psychologists or psychiatrists. Courts and juries are generally more receptive to higher emotional distress awards when the distress is documented through treatment, has persisted over time, and has affected the plaintiff&rsquo;s relationships and daily functioning.</p>
-  <p>Published verdict data shows significant variation in compensatory awards for comparable ADA cases: disability harassment cases, which involve sustained exposure to hostile conduct, typically produce higher emotional distress awards than termination cases involving a single discrete adverse action. Our calculator&rsquo;s base values ($40,000 for harassment, $25,000 for termination/accommodation, $10,000 for public accommodation cases) reflect median outcomes in comparable cases; actual awards range both below and above these levels.</p>
+  <p>Compensatory awards vary enormously with the evidence. The calculator&rsquo;s starting values ($40,000 for harassment, $25,000 for termination or accommodation claims, $10,000 for government-services claims, and $0 for private public-accommodation claims, which carry no federal damages) are illustrative assumptions chosen by the publisher, not averages drawn from verdict data; real awards fall well below and well above them.</p>
 
   <h2>Punitive damages: willful violations</h2>
   <p>Punitive damages are available in Title I cases under &sect; 1981a(b)(1) when the employer acted with <em>malice or reckless indifference</em> to the plaintiff&rsquo;s federally protected rights. This standard, derived from <em>Kolstad v. American Dental Ass&rsquo;n</em> (1999), requires that the employer was aware of the ADA&rsquo;s requirements and made a conscious or reckless decision to violate them — not merely that the employer acted unreasonably or failed to recognize its obligations.</p>
   <p>Evidence that supports a punitive damages finding: HR professionals or supervisors who received specific notification of the ADA requirement and chose to proceed with the adverse action anyway; prior ADA violations by the same employer; documented internal communications reflecting indifference to disability rights; termination of an employee within days of an accommodation request with no engagement in the interactive process; and deviation from established accommodation procedures while other employees received accommodations.</p>
-  <p>Punitive damages are not available against federal, state, or local government employers. They are subject to the same employer-size statutory cap as compensatory damages — compensatory and punitive damages combined cannot exceed the applicable cap for the employer&rsquo;s size. The calculator estimates punitive at 1.5× compensatory base for willful cases, consistent with published ADA verdict data. The <em>combined</em> cap then applies to the sum.</p>
+  <p>Punitive damages are not available against federal, state, or local government employers. They are subject to the same employer-size statutory cap as compensatory damages — compensatory and punitive damages combined cannot exceed the applicable cap for the employer&rsquo;s size. The calculator estimates punitive damages at 1.5&times; the compensatory base for willful cases; that ratio is an illustrative assumption, not a statistic. The <em>combined</em> cap then applies to the sum.</p>
 
   <h2>The combined cap: 42 U.S.C. § 1981a(b)(3)</h2>
   <p>The statutory cap limits the combined total of compensatory and punitive damages to the following amounts based on the number of employees in the employer&rsquo;s relevant group:</p>
@@ -41,7 +41,23 @@ const description = 'A detailed walkthrough of ADA violation damages: back pay, 
 
   <h2>Attorney fees</h2>
   <p>The prevailing plaintiff in an ADA case is entitled to reasonable attorney fees and litigation costs from the defendant under 42 U.S.C. &sect; 12205. Fees are calculated using the lodestar method — hours reasonably expended multiplied by a reasonable hourly rate for experienced employment attorneys in the relevant market. Fee awards are paid by the defendant separately from the plaintiff&rsquo;s damages and do not count against the statutory cap or reduce the plaintiff&rsquo;s recovery.</p>
-  <p>In practice, attorney fees awarded at trial or through settlement negotiations frequently exceed the capped compensatory and punitive damages in ADA cases, particularly in cases that are litigated through extensive discovery and motion practice. This creates a significant asymmetry: even cases with relatively modest caps (small employer with a $50,000 ceiling) can generate substantial fee awards if the litigation is contested, creating strong incentives for employers to settle rather than litigate through trial.</p>
+  <p>In cases litigated through extensive discovery and motion practice, the fee award can exceed the capped compensatory and punitive damages. This creates a significant asymmetry: even cases with relatively modest caps (small employer with a $50,000 ceiling) can generate substantial fee awards if the litigation is contested, creating strong incentives for employers to settle rather than litigate through trial.</p>
+
+    <h2>The good-faith accommodation defense</h2>
+  <p>One rule applies only to accommodation claims. Under 42 U.S.C. &sect;1981a(a)(3), if the claim is that the employer failed to provide a reasonable accommodation, compensatory and punitive damages are not available when the employer shows it made good-faith efforts, in consultation with the employee, to identify and make an accommodation. Back pay and other equitable relief can still be awarded. In practice, this makes the employer&rsquo;s conduct in the &ldquo;interactive process&rdquo; &mdash; whether it engaged, responded, and proposed alternatives &mdash; central to the value of an accommodation case.</p>
+
+  <h2>ADA settlement amounts: why there is no reliable average</h2>
+  <p>No public source tracks the average ADA settlement. Most employment cases settle privately and confidentially; the verdicts that are reported are the outliers that went to trial. The EEOC publishes the total monetary benefits it recovers each year for disability charges, but a total across thousands of charges says little about any single case. What you can estimate is the claim a settlement is measured against: back pay and front pay (uncapped), plus compensatory and punitive damages up to the cap for the employer&rsquo;s size, plus the attorney fees the employer would owe if it lost. Settlements usually land below that full exposure because both sides discount for risk.</p>
+  <p>For a small employer, the cap often matters more than the jury&rsquo;s view of your distress: at 15&ndash;100 employees, compensatory and punitive damages together cannot exceed $50,000 however strong the evidence. For a high earner, lost pay is usually the larger number, and it is not capped. Many states&rsquo; disability discrimination laws have no cap and cover smaller employers, which is why ADA claims are often filed alongside a state-law claim.</p>
+
+  <h2>Sources</h2>
+  <ul>
+    <li>42 U.S.C. &sect;1981a(a)(2)&ndash;(3), (b)(1)&ndash;(3) (damages under the ADA, good-faith accommodation defense, punitive damages standard, caps)</li>
+    <li>42 U.S.C. &sect;12117 (Title I remedies), &sect;12205 (attorney fees)</li>
+    <li><em>Kolstad v. American Dental Ass&rsquo;n</em>, 527 U.S. 526 (1999) (punitive damages standard)</li>
+    <li>U.S. EEOC, &ldquo;Remedies for Employment Discrimination&rdquo;</li>
+  </ul>
+  <p>Estimate your own numbers with the <a href="/">ADA damages calculator</a>.</p>
 
   <p>Return to the <a href="/">calculator</a>, see <a href="/guides/types-of-ada-violations/">types of ADA violations</a>, or read the <a href="/faq/">FAQ</a>.</p>
 </BaseLayout>
