@@ -5,7 +5,7 @@ const description = 'How the ADA violation damages calculator works: back pay, f
 ---
 <BaseLayout title={title} description={description}>
   <h1>Methodology &mdash; How We Estimate ADA Damages</h1>
-  <p><em>Reviewed by our editorial team. Updated May 2026.</em></p>
+  <p><em>Published by The Click Lab Agency LLC. Last reviewed September 2026. Not legal advice.</em></p>
 
   <p>This page documents the formulas, data sources, and assumptions behind the ADA violation damages calculator. Every input, calculation step, and output range is explained so users understand how their estimate was generated and what its limitations are.</p>
 
@@ -20,16 +20,16 @@ const description = 'How the ADA violation damages calculator works: back pay, f
   <p>For Title II and Title III claims (government services and public accommodations), the calculator does not include a front pay component because these claims do not typically involve employment income loss.</p>
 
   <h2>Step 3: Compensatory base</h2>
-  <p>The compensatory base represents the starting point for compensatory damages — emotional distress, mental anguish, out-of-pocket costs, and other non-economic harm — before the punitive component and statutory cap are applied. Base values are derived from published jury verdict data for comparable ADA and Title VII cases:</p>
+  <p>The compensatory base represents the starting point for compensatory damages — emotional distress, mental anguish, out-of-pocket costs, and other non-economic harm — before the punitive component and statutory cap are applied. The base values below are illustrative assumptions chosen by the publisher to show how claim types differ; they are not averages computed from verdict data, and your case could be well above or below them:</p>
   <ul>
-    <li><strong>Disability harassment</strong> — $40,000 base. Harassment cases typically produce higher emotional distress awards than termination cases because they involve sustained exposure to hostile conduct. Published verdict data for hostile work environment claims in the $25,000–$75,000 range for moderate cases informs this base.</li>
-    <li><strong>Employment termination / failure to accommodate / failure to hire</strong> — $25,000 base. These cases involve discrete adverse actions with more contained emotional distress components. This reflects the median of comparable published verdicts in uncomplicated single-incident ADA termination cases.</li>
-    <li><strong>Public accommodation and government services denials</strong> — $10,000 base. Title II and Title III cases without accompanying physical harm or extended exclusion tend to produce lower compensatory awards; injunctive relief is often the primary remedy sought.</li>
+    <li><strong>Disability harassment</strong> — $40,000 base. Harassment cases typically produce higher emotional distress awards than termination cases because they involve sustained exposure to hostile conduct.</li>
+    <li><strong>Employment termination / failure to accommodate / failure to hire</strong> — $25,000 base. These cases involve discrete adverse actions with more contained emotional distress components.</li>
+    <li><strong>Government services denials (Title II)</strong> — $10,000 base, applied only as a placeholder for intentional-discrimination cases. <strong>Public accommodation denials (Title III)</strong> — $0, because federal law gives private plaintiffs injunctive relief and attorney fees but no money damages; state laws such as California&rsquo;s Unruh Act can add statutory damages.</li>
   </ul>
 
   <h2>Step 4: Punitive damages</h2>
   <p>Punitive damages are available in Title I employment ADA cases when the employer acted with malice or reckless indifference to the plaintiff&rsquo;s federally protected rights under 42 U.S.C. &sect; 1981a(b)(1). The malice or reckless indifference standard is met when the employer was aware of the ADA&rsquo;s requirements and consciously chose to violate them — not merely when the employer acted unreasonably or negligently. Evidence of prior ADA violations, HR awareness of the accommodation request followed by inaction, or explicit statements suggesting indifference to disability rights can establish the required mental state.</p>
-  <p>When the user selects a willful violation, the calculator adds a punitive component equal to 1.5× the compensatory base. This 1.5× ratio reflects the median punitive-to-compensatory ratio in published ADA verdicts where punitive damages were awarded. Actual punitive awards vary: some cases result in nominal punitive amounts; cases with strong evidence of deliberate indifference can produce larger ratios. Punitive damages are not available against federal, state, or local government employers, and are excluded from the estimate for public accommodation and government claims.</p>
+  <p>When the user selects a willful violation, the calculator adds a punitive component equal to 1.5× the compensatory base. The 1.5&times; ratio is an illustrative assumption, not a statistic from decided cases. Actual punitive awards vary widely, from nothing to many times the compensatory award, before the cap is applied. Punitive damages are not available against federal, state, or local government employers, and are excluded from the estimate for public accommodation and government claims.</p>
 
   <h2>Step 5: Combined cap application</h2>
   <p>The sum of compensatory and punitive damages cannot exceed the statutory cap applicable to the employer&rsquo;s size under 42 U.S.C. &sect; 1981a(b)(3). The calculator applies the cap as: <code>cappedCP = Math.min(compBase + punitive, cap)</code>. The cap values are: $50,000 (15–100 employees), $100,000 (101–200), $200,000 (201–500), $300,000 (500+ employees).</p>
@@ -42,4 +42,19 @@ const description = 'How the ADA violation damages calculator works: back pay, f
   <p>Attorney fees (separately recoverable under 42 U.S.C. &sect; 12205, paid by the defendant), injunctive relief, reinstatement, and the economic value of lost benefits. Interest on back pay (recoverable in some circuits) is not included. The estimate also does not adjust for the mitigation requirement — actual back pay will be reduced by any earnings from replacement employment.</p>
 
   <p>Return to the <a href="/">calculator</a>, or read the <a href="/faq/">FAQ</a>.</p>
+  <h2>Sources</h2>
+  <ul>
+    <li>Americans with Disabilities Act, 42 U.S.C. &sect;12111 (15-employee coverage), &sect;12117 (Title I remedies adopt Title VII&rsquo;s), &sect;12133 (Title II remedies), &sect;12188 (Title III remedies), &sect;12205 (attorney fees)</li>
+    <li>Civil Rights Act of 1991, 42 U.S.C. &sect;1981a (compensatory and punitive damages and employer-size caps)</li>
+    <li>Title VII, 42 U.S.C. &sect;2000e-5(e) (charge-filing deadlines)</li>
+    <li><em>Barnes v. Gorman</em>, 536 U.S. 181 (2002) (no punitive damages under Title II)</li>
+    <li>California Civil Code &sect;&sect;51, 52 (Unruh Civil Rights Act statutory damages)</li>
+    <li>U.S. EEOC, &ldquo;Remedies for Employment Discrimination&rdquo;; U.S. Department of Justice, ada.gov</li>
+  </ul>
+
+  <h2>Changelog</h2>
+  <ul>
+    <li><strong>September 2026:</strong> Corrected the description of Title III remedies (no federal money damages for private plaintiffs) and set the calculator&rsquo;s Title III compensatory figure to $0; relabeled compensatory base values and the punitive ratio as publisher assumptions; added a Title-by-Title table, three worked examples, and this sources list; replaced the generic editorial byline with publisher attribution; redirected a legacy URL.</li>
+    <li><strong>May 2026:</strong> Site rebuilt on Astro so every page is delivered as plain HTML.</li>
+  </ul>
 </BaseLayout>
